@@ -24,8 +24,7 @@ public class BookService {
     private Long currentId = 4L;
 
     public Collection<BookResponse> getAllBooks() {
-        // complete
-        return null;
+        return this.books.values().stream().map(BookResponse::new).collect(Collectors.toList());
     }
 
 
