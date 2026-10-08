@@ -34,6 +34,7 @@ public class BookService {
 
     public BookResponse getBookById(Long id) {
         Book book = this.books.get(id);
+        if (book == null) throw new BookNotFoundException(id);
         BookResponse bookResponse = new BookResponse(book);
         return bookResponse;
     }
