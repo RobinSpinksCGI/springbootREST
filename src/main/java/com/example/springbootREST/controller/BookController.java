@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.http.ResponseEntity;
 import java.util.Collection;
 
 @RestController
@@ -23,7 +24,8 @@ public class BookController {
     }
 
     @GetMapping("/{id}")
-    public BookResponse getBookById(@PathVariable Long id) {
-        return this.bookService.getBookById(id);
+    public ResponseEntity<BookResponse> getBookById(@PathVariable Long id) {
+        BookResponse bookResponse = this.bookService.getBookById(id);
+        return ResponseEntity.ok(bookResponse);
     }
 }
