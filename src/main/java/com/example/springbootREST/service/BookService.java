@@ -33,7 +33,9 @@ public class BookService {
     }
 
     public BookResponse getBookById(Long id) {
-        return this.books.get(id);
+        Book book = this.books.get(id);
+        BookResponse bookResponse = new BookResponse(book);
+        return bookResponse;
     }
 
     public BookResponse createBook() {
