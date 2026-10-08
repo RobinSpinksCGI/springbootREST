@@ -39,10 +39,19 @@ public class BookService {
         return bookResponse;
     }
 
-    public BookResponse createBook() {
+    public BookResponse createBook(BookCreateRequest request) {
+        Book book = new Book(
+                this.currentId,
+                request.getTitle(),
+                request.getAuthor(),
+                request.getPrice(),
+                request.getIsbn()
+        );
+        this.books.put(this.currentId, book);
+        this.currentId = this.currentId + 1;
+        BookResponse bookResponse = new BookResponse(book);
+        return bookResponse;
 
-        // complete
-        return null;
     }
 
     public PaginatedResponse<BookResponse> getAllBooks(int page) {
