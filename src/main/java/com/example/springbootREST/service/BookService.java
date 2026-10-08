@@ -27,15 +27,13 @@ public class BookService {
         return this.books.values().stream().map(BookResponse::new).collect(Collectors.toList());
     }
 
-
     public Collection<BookResponse> getAllBooks(String author, Double maxPrice) {
         // complete
         return null;
     }
 
-    public BookResponse getBookById() {
-        // complete
-        return null;
+    public BookResponse getBookById(Long id) {
+        return this.books.get(id);
     }
 
     public BookResponse createBook() {
