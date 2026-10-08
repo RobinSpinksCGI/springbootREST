@@ -5,6 +5,7 @@ import com.example.springbootREST.service.BookService;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import java.util.Collection;
 
 @RestController
@@ -19,5 +20,10 @@ public class BookController {
     @GetMapping
     public Collection<BookResponse> getAllbooks() {
         return this.bookService.getAllBooks();
+    }
+
+    @GetMapping("/{id}")
+    public Collection<BookResponse> getBookById(@PathVariable Long id) {
+        return this.bookService.getBookById(id);
     }
 }
