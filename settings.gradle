@@ -12,5 +12,5 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.buildFileName = 'build.gradle.kts'
+
 rootProject.name = 'springbootREST'
