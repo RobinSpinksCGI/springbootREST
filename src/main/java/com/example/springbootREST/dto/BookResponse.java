@@ -15,7 +15,7 @@ public class BookResponse {
         this.title = book.getTitle();
         this.author = book.getAuthor();
         this.price = book.getPrice();
-        this.isbn = book.getIsdn();
+        this.isbn = book.getIsbn();
         this.fullDescription = this.title+" By "+this.author;
     }
 
