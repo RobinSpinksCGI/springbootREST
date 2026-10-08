@@ -1,9 +1,21 @@
 package com.example.springbootREST.dto;
 
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
+
 public class BookCreateRequest {
+    @NotEmpty(message = "Title cannot be blank")
+    @Size(min = 1, max = 100, message = "Title must be between 1 and 100 characters")
     private String title;
+
+    @NotEmpty(message = "Author cannot be blank")
     private String author;
+
+    @Min(value = 0, message = "Price cannot be negative")
     private double price;
+
+    @Size(min = 13, max = 13, message = "ISBN must be 13 digits")
     private String isbn;
 
     public BookCreateRequest(String title, String author, double price, String isbn) {
