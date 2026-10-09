@@ -38,7 +38,10 @@ public class BookController {
     }
 
     @GetMapping("/search")
-    public ResponseEntity<Collection<BookResponse>> searchBooks(@RequestParam(required = false) String author, @RequestParam(required = false) Double maxPrice) {
+    public ResponseEntity<Collection<BookResponse>> searchBooks(
+            @RequestParam(required = false) String author,
+            @RequestParam(required = false) Double maxPrice
+    ) {
         Collection<BookResponse> books = this.bookService.getAllBooks(author, maxPrice);
         return ResponseEntity.ok(books);
     }
