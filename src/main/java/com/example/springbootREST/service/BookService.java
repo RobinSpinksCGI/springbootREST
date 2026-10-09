@@ -28,8 +28,9 @@ public class BookService {
     }
 
     public Collection<BookResponse> getAllBooks(String author, Double maxPrice) {
-        // complete
-        return null;
+        return this.books.values().stream().filter(
+                book -> book.getPrice() <= maxPrice && book.getAuthor().toLowerCase().startsWith(author.toLowerCase())
+        ).map(BookResponse::new).collect(Collectors.toList());
     }
 
     public BookResponse getBookById(Long id) {
