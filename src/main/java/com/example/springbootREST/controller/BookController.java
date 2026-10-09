@@ -2,6 +2,7 @@ package com.example.springbootREST.controller;
 import com.example.springbootREST.dto.BookResponse;
 import com.example.springbootREST.dto.BookCreateRequest;
 import com.example.springbootREST.service.BookService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.ResponseEntity;
 
@@ -18,7 +19,7 @@ public class BookController {
     }
 
     @PostMapping
-    public ResponseEntity<BookResponse> createBook(@RequestBody BookCreateRequest request) {
+    public ResponseEntity<BookResponse> createBook(@Valid @RequestBody BookCreateRequest request) {
         BookResponse bookResponse = bookService.createBook(request);
         return ResponseEntity
                 .created(URI.create("/{id}"))
